@@ -1,33 +1,11 @@
+{% extends "base.html" %}
 {% load sass_tags %}
-<html lang="en">
-    <head>
-        <link href="{% sass_src 'default/null.scss' %}" rel="stylesheet" />
-        <link href="{% sass_src 'home/sass/home.scss' %}" rel="stylesheet" />
-        <title>Main page</title>
-    </head>
-    <body>
-        <div class="container">
-            <div class="header">
-                <div class="header__part">
-                    <div class="header__container">
-                        <a href="/">Home</a>
-                        <a href="/">Home</a>
-                    </div>
-                </div>
-                <div class="header__part">
-                    <div class="header__container">
-                        <a href="/test">Test</a>
-                        <a href="/test">Test</a>
-                        <a href="/test">Test</a>
-                    </div>
-                </div>
-            </div>
-            <div class="text__container">
-                <h1>Main</h1>
-            </div>
-            <div class="footer">
-                Footer
-            </div>
-        </div>
-    </body>
-</html>
+
+{% block extrastyle %}
+    {{ block.super }}
+    <link href="{% sass_src 'home/sass/home.scss' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    <h1>Main</h1>
+{% endblock %}
