@@ -2,8 +2,10 @@ from django.shortcuts import render
 
 
 def home_view(request):
-    return render(request, 'home.html')
+    args = {'active_menu': 'home'}
+    return render(request, 'home.html', args)
 
 
 def test_view(request):
-    return render(request, 'test.html')
+    args = {'active_menu': 'test'}
+    return render(request, 'test.html', args)

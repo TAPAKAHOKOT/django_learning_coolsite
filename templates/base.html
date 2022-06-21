@@ -14,15 +14,15 @@
             <div class="header">
                 <div class="header__part">
                     <div class="header__container">
-                        <a href="/">Home</a>
-                        <a href="/">Home</a>
+                        <a href="/" class="{% if active_menu == 'home' %}active{% endif %}">Home</a>
+                        <a href="/" class="{% if active_menu == 'home' %}active{% endif %}">Home</a>
                     </div>
                 </div>
                 <div class="header__part">
                     <div class="header__container">
-                        <a href="/test">Test</a>
-                        <a href="/test">Test</a>
-                        <a href="/test">Test</a>
+                        <a href="/test" class="{% if active_menu == 'test' %}active{% endif %}">Test</a>
+                        <a href="/test" class="{% if active_menu == 'test' %}active{% endif %}">Test</a>
+                        <a href="/test" class="{% if active_menu == 'test' %}active{% endif %}">Test</a>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,14 @@
                 {% block content %}{% endblock %}
             </div>
             <div class="footer">
-                Footer
+                <div class="footer__container">
+                    <div class="footer__text">
+                        Footer 1
+                    </div>
+                    <div class="footer__text">
+                        Footer 2
+                    </div>
+                </div>
             </div>
         </div>
     </body>
