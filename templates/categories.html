@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load sass_tags %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <link href="{% sass_src 'categories/sass/categories.scss' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    <h1>Categories</h1>
+{% endblock %}

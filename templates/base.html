@@ -6,7 +6,7 @@
             <link href="{% sass_src 'base/sass/base.scss' %}" rel="stylesheet" />
         {% endblock %}
         {% block title %}
-            <title>Main page</title>
+            <title>Home page</title>
         {% endblock %}
     </head>
     <body>
@@ -20,7 +20,7 @@
                 </div>
                 <div class="header__part">
                     <div class="header__container">
-                        <a href="/test" class="{% if active_menu == 'test' %}active{% endif %}">Test</a>
+                        <a href="/categories" class="{% if active_menu == 'categories' %}active{% endif %}">Categories</a>
                         <a href="/test" class="{% if active_menu == 'test' %}active{% endif %}">Test</a>
                         <a href="/test" class="{% if active_menu == 'test' %}active{% endif %}">Test</a>
                     </div>

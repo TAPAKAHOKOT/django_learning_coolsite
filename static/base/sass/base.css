@@ -44,11 +44,13 @@
       .header .header__part .header__container a.active {
         background-color: #000;
         color: #fff;
-        box-shadow: 0px 0px 0px black; }
+        box-shadow: 0px 0px 0px black;
+        flex-grow: 5; }
       .header .header__part .header__container a.active:hover {
         background-color: yellow;
         box-shadow: 2px 2px 0px black;
-        color: #000; }
+        color: #000;
+        flex-grow: 1; }
 
 .content {
   flex-grow: 1; }
