@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load sass_tags %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <link href="{% sass_src 'categories/sass/category_index.scss' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    <div class="category__container">
+        <div>
+            <div class="category__name">
+                <h1>{{ category.name }} [id={{ category.id }}]</h1>
+            </div>
+            {% if category.image %}
+                <div class="category__image">
+                    <div class="category__image__container">
+                        <img src="{{ category.image.url }}" alt="">
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

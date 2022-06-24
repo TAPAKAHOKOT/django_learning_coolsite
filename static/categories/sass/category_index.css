@@ -1,0 +1,22 @@
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .content .category__container {
+    background-color: orange;
+    padding: 30px;
+    box-shadow: 5px 5px 0px black; }
+    .content .category__container .category__name {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+    .content .category__container .category__image {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .content .category__container .category__image .category__image__container {
+        width: 600px; }
+    .content .category__container h1 {
+      color: black; }
+
+/*# sourceMappingURL=category_index.css.map */

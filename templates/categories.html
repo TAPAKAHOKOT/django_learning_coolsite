@@ -7,5 +7,13 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Categories</h1>
+    <div class="items__container">
+        {% for categories_chunk in categories %}
+            <ul>
+                {% for category in categories_chunk %}
+                    <li><a href="/categories/{{ category.slug }}">{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </div>
 {% endblock %}
