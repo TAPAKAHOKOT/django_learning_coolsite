@@ -4,10 +4,8 @@ from articles.views import *
 from coolsite import settings
 
 urlpatterns = [
-    path('', index),
-    path('categories/', categories, name="categories"),
-    path('categories/<str:category_slug>/', category_index),
-    path('test/', test),
+    path('categories/', index, name="categories"),
+    path('categories/<str:category_slug>/', view),
 ]
 
 if settings.DEBUG:

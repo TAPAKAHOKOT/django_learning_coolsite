@@ -49,8 +49,7 @@
       .header .header__part .header__container a.active:hover {
         background-color: yellow;
         box-shadow: 2px 2px 0px black;
-        color: #000;
-        flex-grow: 1; }
+        color: #000; }
 
 .content {
   flex-grow: 1; }
