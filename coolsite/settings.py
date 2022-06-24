@@ -126,7 +126,7 @@ STATIC_URL = 'static/'
 
 STATIC_ROOT = BASE_DIR / 'static'
 SASS_PROCESSOR_INCLUDE_DIRS = [
-    BASE_DIR / 'static'
+    BASE_DIR / 'articles/static'
 ]
 
 # Default primary key field type

@@ -19,7 +19,7 @@ def view(request, category_slug: str):
     try:
         category = Categories.objects.get(slug=category_slug)
     except ObjectDoesNotExist:
-        return redirect('categories')
+        return redirect('categories_index')
 
     args = {
         'category': category

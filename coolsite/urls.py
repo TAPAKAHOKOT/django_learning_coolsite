@@ -21,10 +21,10 @@ from django.conf.urls.static import static
 from coolsite.views import *
 
 urlpatterns = [
-    path('', index),
-    path('test/', test),
+    path('', index, name='index'),
+    path('test/', test, name='test'),
     path('', include('articles.urls')),
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 # handle404 = pageNotFound

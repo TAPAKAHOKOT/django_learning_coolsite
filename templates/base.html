@@ -14,15 +14,15 @@
             <div class="header">
                 <div class="header__part">
                     <div class="header__container">
-                        <a href="/" class="{% if active_menu == 'home' %}active{% endif %}">Home</a>
-                        <a href="/" class="{% if active_menu == 'home' %}active{% endif %}">Home</a>
+                        <a href="{% url 'index' %}" class="{% if active_menu == 'home' %}active{% endif %}">Home</a>
+                        <a href="{% url 'index' %}" class="{% if active_menu == 'home' %}active{% endif %}">Home</a>
                     </div>
                 </div>
                 <div class="header__part">
                     <div class="header__container">
-                        <a href="/categories" class="{% if active_menu == 'categories' %}active{% endif %}">Categories</a>
-                        <a href="/test" class="{% if active_menu == 'test' %}active{% endif %}">Test</a>
-                        <a href="/test" class="{% if active_menu == 'test' %}active{% endif %}">Test</a>
+                        <a href="{% url 'categories_index' %}" class="{% if active_menu == 'categories' %}active{% endif %}">Categories</a>
+                        <a href="{% url 'test' %}" class="{% if active_menu == 'test' %}active{% endif %}">Test</a>
+                        <a href="{% url 'test' %}" class="{% if active_menu == 'test' %}active{% endif %}">Test</a>
                     </div>
                 </div>
             </div>

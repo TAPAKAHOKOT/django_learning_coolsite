@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Categories(models.Model):
@@ -11,6 +12,9 @@ class Categories(models.Model):
     time_update = models.DateTimeField(auto_now=True)
 
     is_published = models.BooleanField(default=False)
+
+    def get_absolute_url(self):
+        return reverse('categories_view', kwargs={'category_slug': self.slug})
 
     def __str__(self):
         return self.slug
