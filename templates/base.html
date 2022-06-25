@@ -5,6 +5,7 @@
             <link href="{% sass_src 'default/null.scss' %}" rel="stylesheet" />
             <link href="{% sass_src 'base/sass/base.scss' %}" rel="stylesheet" />
         {% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         {% block title %}
             <title>Home page</title>
         {% endblock %}
@@ -21,7 +22,6 @@
                 <div class="header__part">
                     <div class="header__container">
                         <a href="{% url 'categories_index' %}" class="{% if active_menu == 'categories' %}active{% endif %}">Categories</a>
-                        <a href="{% url 'test' %}" class="{% if active_menu == 'test' %}active{% endif %}">Test</a>
                         <a href="{% url 'test' %}" class="{% if active_menu == 'test' %}active{% endif %}">Test</a>
                     </div>
                 </div>
