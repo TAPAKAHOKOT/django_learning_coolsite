@@ -2,10 +2,11 @@ name: Deploy
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
     
 jobs:
-  job_one:
+  deploy:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
