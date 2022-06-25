@@ -1,13 +1,17 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect
-from articles.models import Categories
+from articles.models import (
+    Categories,
+    Articles
+)
 
 
-split_list = lambda lst, sz: [lst[i::sz] for i in range(sz)]
+def split_list(lst, sz):
+    return [lst[i::sz] for i in range(sz)]
 
 
 def index(request):
-    all_categories = Categories.objects.all().filter(is_published=True).order_by('-priority', 'id')
+    all_categories = Categories.objects.all().filter(is_published=True).order_by('-priority', 'name')
     args = {
         'active_menu': 'categories',
         'categories': split_list(all_categories, 2)
@@ -21,7 +25,9 @@ def view(request, category_slug: str):
     except ObjectDoesNotExist:
         return redirect('categories_index')
 
+    all_articles = Articles.objects.all().filter(category_id=category.id).order_by('time_create')
     args = {
-        'category': category
+        'category': category,
+        'articles': split_list(all_articles, 2)
     }
     return render(request, 'categories/view.html', args)

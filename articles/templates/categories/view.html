@@ -19,6 +19,15 @@
                     </div>
                 </div>
             {% endif %}
+            <div class="articles__container">
+                {% for articles_chunk in articles %}
+                    <ul>
+                        {% for article in articles_chunk %}
+                            <li><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}
