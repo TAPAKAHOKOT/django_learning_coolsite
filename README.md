@@ -1,2 +1,2 @@
 # Learning django site
-![Test-Deploy](https://github.com/tapakahokot/django_learning_coolsite/actions/workflows/main.yml/badge.svg)
+![Test](https://img.shields.io/github/workflow/status/tapakahokot/django_learning_coolsite/Test)
