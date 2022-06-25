@@ -55,7 +55,8 @@ jobs:
       - name: Run Tests
         env:
           SECRET_KEY: ${{secrets.SECRET_KEY}}
-          DB: ${{ matrix.db }}
+          DB_NAME: ${{ matrix.db }}
+          DB_USER: postgres
           DB_HOST: 127.0.0.1
           DB_PORT: ${{ matrix.db_port }}
           DB_PASSWORD: password
