@@ -19,6 +19,9 @@ class Categories(models.Model):
     def __str__(self):
         return self.slug
 
+    class Meta:
+        ordering = ['-priority', '-time_create']
+
 
 class Articles(models.Model):
     category = models.ForeignKey(Categories, on_delete=models.PROTECT)
@@ -38,3 +41,6 @@ class Articles(models.Model):
 
     def __str__(self):
         return self.slug
+
+    class Meta:
+        ordering = ['-time_create', 'title']
