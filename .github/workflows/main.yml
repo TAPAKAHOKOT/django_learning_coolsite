@@ -58,9 +58,7 @@ jobs:
         key: ${{ secrets.DEPLOY_SERVER_KEY }}
         port: 22
         script: |
-          cd django_learning_coolsite
-          git pull
-          cd ..
+          git -C "/home/bbam_ru/django_learning_coolsite" pull
           venv/bin/python -m pip install --upgrade pip
           venv/bin/python -m pip install -r django_learning_coolsite/requirements.txt
           pm2 delete bbam_ru
