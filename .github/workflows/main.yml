@@ -59,7 +59,7 @@ jobs:
         port: 22
         script: |
           cd django_learning_coolsite
-          git pull origin master
+          git pull
           cd ..
           venv/bin/python -m pip install --upgrade pip
           venv/bin/python -m pip install -r django_learning_coolsite/requirements.txt
