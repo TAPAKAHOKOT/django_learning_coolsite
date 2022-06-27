@@ -9,6 +9,7 @@ class CategoriesAdmin(admin.ModelAdmin):
     search_fields = ('name', 'slug')
     list_editable = ('is_published', 'priority')
     list_filter = ('is_published', 'priority', 'time_create')
+    prepopulated_fields = {'slug': ('name',)}
 
 
 class ArticlesAdmin(admin.ModelAdmin):
@@ -17,6 +18,7 @@ class ArticlesAdmin(admin.ModelAdmin):
     search_fields = ('title', 'content')
     list_editable = ('is_published',)
     list_filter = ('is_published', 'time_create')
+    prepopulated_fields = {'slug': ('title',)}
 
 
 admin.site.register(Categories, CategoriesAdmin)
