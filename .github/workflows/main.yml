@@ -61,6 +61,7 @@ jobs:
           cd django_learning_coolsite
           git pull origin master
           cd ..
+          venv/bin/python -m pip install --upgrade pip
           venv/bin/python -m pip install -r django_learning_coolsite/requirements.txt
           pm2 delete bbam_ru
           pm2 start bbam.json
