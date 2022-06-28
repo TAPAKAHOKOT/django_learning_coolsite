@@ -26,7 +26,8 @@ class ArticlesCreateForm(forms.ModelForm):
             'content': forms.Textarea(
                 attrs={
                     'class': 'input__item form__area',
-                    'placeholder': 'Content'
+                    'placeholder': 'Content',
+                    'rows': 5
                 }
             ),
             'cover': forms.FileInput(
