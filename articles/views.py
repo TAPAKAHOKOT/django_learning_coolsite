@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.db.models import Count
+from django.db.models import Count, Q
 from django.http import Http404
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
@@ -40,7 +40,7 @@ class CategoriesIndex(DataMixin, ListView):
 
     def get_queryset(self):
         return Categories.objects\
-            .annotate(total=Count('articles'))\
+            .annotate(total=Count('articles', filter=Q(articles__is_published=True)))\
             .filter(is_published=True, total__gt=0)\
             .order_by('-priority', 'name')
 
@@ -54,7 +54,7 @@ class CategoriesView(DataMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['articles'] = zip_list(
-            self.get_object().articles_set.order_by('time_create'),
+            self.get_object().articles_set.filter(is_published=True).order_by('time_create'),
             2
         )
         default_context = self.get_user_context(
