@@ -11,7 +11,7 @@
         {% for categories_chunk in categories %}
             <ul>
                 {% for category in categories_chunk %}
-                    <li><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
+                    <li><a href="{{ category.get_absolute_url }}">{{ category.name }} ({{ category.total }})</a></li>
                 {% endfor %}
             </ul>
         {% endfor %}

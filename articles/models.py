@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.defaultfilters import slugify
 from django.urls import reverse
 
 
@@ -17,7 +18,7 @@ class Categories(models.Model):
         return reverse('categories_view', kwargs={'category_slug': self.slug})
 
     def __str__(self):
-        return self.slug
+        return self.name
 
     class Meta:
         ordering = ['-priority', '-time_create']
@@ -38,6 +39,10 @@ class Articles(models.Model):
 
     def get_absolute_url(self):
         return reverse('categories_view', kwargs={'category_slug': self.slug})
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.slug

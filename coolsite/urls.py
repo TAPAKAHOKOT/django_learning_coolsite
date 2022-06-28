@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 from coolsite.views import *
 
 urlpatterns = [
-    path('', index, name='index'),
+    path('', IndexView.as_view(), name='index'),
     path('test/', test, name='test'),
     path('', include('articles.urls')),
     path('admin/', admin.site.urls, name='admin'),

@@ -15,13 +15,16 @@
             <div class="header">
                 <div class="header__part">
                     <div class="header__container">
-                        <a href="{% url 'index' %}" class="{% if active_menu == 'home' %}active{% endif %}">Home</a>
+                        {% for menu_item in menu %}
+                            <a href="{% url menu_item.url_name %}" class="{% if active_menu == menu_item.index %}active{% endif %}">{{ menu_item.title }}</a>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="header__part">
                     <div class="header__container">
-                        <a href="{% url 'categories_index' %}" class="{% if active_menu == 'categories' %}active{% endif %}">Categories</a>
-                        <a href="{% url 'test' %}" class="{% if active_menu == 'test' %}active{% endif %}">Test</a>
+                        {% for submenu_item in submenu %}
+                            <a href="{% url submenu_item.url_name %}" class="{% if active_menu == submenu_item.index %}active{% endif %}">{{ submenu_item.title }}</a>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

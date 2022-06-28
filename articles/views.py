@@ -1,20 +1,26 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Count
 from django.http import Http404
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
+from django.urls import reverse_lazy
 from django.views.generic import (
     DetailView,
-    ListView
+    ListView,
+    CreateView
 )
 from articles.models import (
     Categories,
     Articles
 )
+from .forms import ArticlesCreateForm
+from .utils import *
 
 
 def zip_list(lst, sz):
     return [lst[i::sz] for i in range(sz)]
 
 
-class CategoriesIndex(ListView):
+class CategoriesIndex(DataMixin, ListView):
     model = Categories
     template_name = 'categories/index.html'
     context_object_name = 'categories'
@@ -22,14 +28,24 @@ class CategoriesIndex(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['categories'] = zip_list(context['categories'], 2)
-        return context
+        context['categories'] = zip_list(
+            context['categories'],
+            2
+        )
+        default_context = self.get_user_context(
+            active_menu='categories_index',
+            title='Categories'
+        )
+        return dict(list(context.items()) + list(default_context.items()))
 
     def get_queryset(self):
-        return Categories.objects.filter(is_published=True).order_by('-priority', 'name')
+        return Categories.objects\
+            .annotate(total=Count('articles'))\
+            .filter(is_published=True, total__gt=0)\
+            .order_by('-priority', 'name')
 
 
-class CategoriesView(DetailView):
+class CategoriesView(DataMixin, DetailView):
     model = Categories
     template_name = 'categories/view.html'
     context_object_name = 'category'
@@ -38,10 +54,13 @@ class CategoriesView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['articles'] = zip_list(
-            Articles.objects.filter(category_id=self.get_object().id).order_by('time_create'),
+            self.get_object().articles_set.order_by('time_create'),
             2
         )
-        return context
+        default_context = self.get_user_context(
+            title='Categories'
+        )
+        return dict(list(context.items()) + list(default_context.items()))
 
     def get(self, request, *args, **kwargs):
         try:
@@ -50,3 +69,18 @@ class CategoriesView(DetailView):
             return redirect('categories_index')
         context = self.get_context_data(object=self.object)
         return self.render_to_response(context)
+
+
+class ArticlesCreate(LoginRequiredMixin, DataMixin, CreateView):
+    form_class = ArticlesCreateForm
+    template_name = 'articles/create.html'
+    success_url = reverse_lazy('index')
+    login_url = reverse_lazy('index')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        default_context = self.get_user_context(
+            active_menu='articles_create',
+            title='Categories'
+        )
+        return dict(list(context.items()) + list(default_context.items()))

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load sass_tags %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <link href="{% sass_src 'articles/sass/create.scss' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    <div class="form__container">
+        <form action="{% url 'articles_create' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form__error">{{ form.title.errors }}</div>
+            {{ form.as_p }}
+            <button type="submit">Create</button>
+        </form>
+    </div>
+{% endblock %}

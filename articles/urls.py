@@ -6,6 +6,7 @@ from coolsite import settings
 urlpatterns = [
     path('categories/', CategoriesIndex.as_view(), name="categories_index"),
     path('categories/<str:category_slug>/', CategoriesView.as_view(), name="categories_view"),
+    path('articles/create', ArticlesCreate.as_view(), name="articles_create"),
 ]
 
 if settings.DEBUG:

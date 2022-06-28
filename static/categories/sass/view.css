@@ -20,8 +20,7 @@
       color: black; }
     .content .category__container .articles__container {
       display: flex;
-      justify-content: center;
-      align-items: center; }
+      justify-content: center; }
       .content .category__container .articles__container ul li {
         list-style-type: none;
         padding: 20px; }
