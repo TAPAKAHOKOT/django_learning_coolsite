@@ -37,6 +37,7 @@
 
             @media screen and (max-width:800px) {
                 flex-direction: column;
+                padding: 10px 7px;
             }
 
 
@@ -53,9 +54,9 @@
                 margin: 0px 5px;
                 text-decoration: none;
                 color: black;
-                transition: 0.5s;
 
                 @media screen and (max-width:800px) {
+                    width: 100%;
                     margin: 5px 15px;
                     font-size: 20px;
                 }

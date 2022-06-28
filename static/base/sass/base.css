@@ -30,7 +30,8 @@
       opacity: 0.9; }
       @media screen and (max-width: 800px) {
         .header .header__part .header__container {
-          flex-direction: column; } }
+          flex-direction: column;
+          padding: 10px 7px; } }
       .header .header__part .header__container a {
         display: flex;
         justify-content: center;
@@ -43,10 +44,10 @@
         flex-grow: 1;
         margin: 0px 5px;
         text-decoration: none;
-        color: black;
-        transition: 0.5s; }
+        color: black; }
         @media screen and (max-width: 800px) {
           .header .header__part .header__container a {
+            width: 100%;
             margin: 5px 15px;
             font-size: 20px; } }
       .header .header__part .header__container a:hover {
