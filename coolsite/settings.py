@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sass_processor',
     'articles.apps.ArticlesConfig',
-    'pure_pagination',
 ]
 
 STATICFILES_FINDERS = [

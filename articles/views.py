@@ -12,7 +12,6 @@ from django.views.generic import (
 from articles.models import (
     Categories
 )
-from pure_pagination.mixins import PaginationMixin
 from .forms import ArticlesCreateForm
 from .utils import *
 
