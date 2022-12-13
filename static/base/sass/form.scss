@@ -9,6 +9,11 @@
         box-shadow: 5px 5px 0 black;
         margin: 30px;
         padding: 15px 30px;
+        min-width: 400px;
+
+        .form__style {
+            width: 100%;
+        }
 
         .form__item {
             width: 100%;
@@ -18,7 +23,7 @@
                 border: none;
                 width: 100%;
                 box-shadow: 3px 3px 0px black;
-                background-color: yellow;
+                background-color: white;
                 border-radius: 5px;
                 padding-left: 15px;
             }
@@ -35,12 +40,19 @@
         .form__button {
             border: none;
             box-shadow: 3px 3px 0px black;
-            background-color: greenyellow;
-            min-width: 50%;
+            background-color: yellow;
+            min-width: 30%;
+            padding: 5px 5px;
             margin-top: 10px;
+            margin-right: 10px;
             width: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 35px;
             border-radius: 5px;
             transition: 0.5s;
+            text-decoration: none;
         }
 
         .form__button:hover {

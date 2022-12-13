@@ -12,8 +12,12 @@
 
 {% block content %}
     <div class="form__container">
-        <form action="{% url 'register' %}" method="post" enctype="multipart/form-data" class="form__style">
+        <form action="{% url 'login' %}" method="post" enctype="multipart/form-data" class="form__style">
             {% csrf_token %}
+
+            <div class="form__error">
+                {{ form.non_field_errors }}
+            </div>
 
             {% for f in form %}
                 <div class="form__item">
@@ -24,7 +28,10 @@
                 </div>
             {% endfor %}
 
-            <button type="submit" class="form__button">Зарегистрироваться</button>
+            <div class="flex_space_between">
+                <button type="submit" class="form__button">Войти</button>
+                <a href="{% url 'register' %}" class="form__button">Зарегистрироваться</a>
+            </div>
         </form>
     </div>
 {% endblock %}

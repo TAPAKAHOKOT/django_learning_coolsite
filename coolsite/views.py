@@ -1,8 +1,11 @@
+from django.contrib.auth import logout
+from django.contrib.auth.views import LoginView
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView
 
 from articles.utils import *
-from coolsite.forms import RegisterUserForm
+from coolsite.forms import RegisterUserForm, LoginUserForm
 
 
 class IndexView(DataMixin, TemplateView):
@@ -29,7 +32,7 @@ class TestView(DataMixin, TemplateView):
         return dict(list(context.items()) + list(default_context.items()))
 
 
-class RegisterView(DataMixin, CreateView):
+class RegisterUser(DataMixin, CreateView):
     form_class = RegisterUserForm
     template_name = 'register.html'
     success_url = reverse_lazy('login')
@@ -42,6 +45,20 @@ class RegisterView(DataMixin, CreateView):
         )
         return dict(list(context.items()) + list(default_context.items()))
 
+
+class LoginUser(DataMixin, LoginView):
+    form_class = LoginUserForm
+    template_name = 'login.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        default_context = self.get_user_context(
+            active_menu='login',
+            title='login'
+        )
+        return dict(list(context.items()) + list(default_context.items()))
+
+
 # def test(request):
 #     args = {
 #         'active_menu': 'test',
@@ -49,3 +66,7 @@ class RegisterView(DataMixin, CreateView):
 #         'submenu': submenu,
 #     }
 #     return render(request, 'test.html', args)
+
+def logout_view(request):
+    logout(request)
+    return render(request, 'home.html')

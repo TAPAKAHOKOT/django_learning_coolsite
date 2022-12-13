@@ -17,14 +17,16 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth.views import LogoutView
 
 from coolsite.views import *
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
     path('test/', TestView.as_view(), name='test'),
-    path('login/', TestView.as_view(), name='login'),
-    path('register/', RegisterView.as_view(), name='register'),
+    path('login/', LoginUser.as_view(), name='login'),
+    path('logout/', LogoutView.as_view(), name='logout'),
+    path('register/', RegisterUser.as_view(), name='register'),
     path('', include('articles.urls')),
     path('admin/', admin.site.urls, name='admin'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
