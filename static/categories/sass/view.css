@@ -1,7 +1,8 @@
 .content {
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  flex-direction: column; }
   .content .category__container {
     background-color: orange;
     padding: 30px;
@@ -9,7 +10,10 @@
     .content .category__container .category__name {
       display: flex;
       justify-content: center;
-      align-items: center; }
+      align-items: center;
+      background-color: yellow;
+      padding: 5px 15px;
+      box-shadow: 5px 5px 0px black; }
     .content .category__container .category__image {
       display: flex;
       justify-content: center;
@@ -21,27 +25,7 @@
     .content .category__container .articles__container {
       display: flex;
       justify-content: center; }
-      .content .category__container .articles__container ul li {
-        list-style-type: none;
-        padding: 20px; }
-      .content .category__container .articles__container a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 2px 2px 0px black;
-        background-color: yellow;
-        padding: 3px 10px;
-        border-radius: 5px;
-        transition: 0.5s;
-        flex-grow: 1;
-        margin: 0px 5px;
-        text-decoration: none;
-        color: black;
-        transition: 0.5s; }
-      .content .category__container .articles__container a:hover {
-        flex-grow: 5;
-        background-color: #000;
-        box-shadow: 0px 0px 0px black;
-        color: #fff; }
+    .content .category__container .pages__container {
+      display: flex; }
 
 /*# sourceMappingURL=view.css.map */

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sass_processor',
     'articles.apps.ArticlesConfig',
+    'pure_pagination',
 ]
 
 STATICFILES_FINDERS = [
@@ -139,3 +140,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
+
+PAGINATION_SETTINGS = {
+    'PAGE_RANGE_DISPLAYED': 2,
+    'MARGIN_PAGES_DISPLAYED': 1,
+
+    'SHOW_FIRST_PAGE_WHEN_INVALID': True,
+} 

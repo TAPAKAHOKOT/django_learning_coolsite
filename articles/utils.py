@@ -45,6 +45,9 @@ class DataMixin:
         context['menu'] = self.check_menu(context['menu'], is_auth)
         context['submenu'] = self.check_menu(context['submenu'], is_auth)
 
+        context['pages_view_range_limit'] = 2
+        context['pages_view_range_limit_neg'] = -context['pages_view_range_limit']
+
         return context
 
     def check_menu(self, menu_to_check, is_auth):

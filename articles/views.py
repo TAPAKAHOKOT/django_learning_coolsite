@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.paginator import Paginator
 from django.db.models import Count, Q
 from django.http import Http404
 from django.shortcuts import redirect, render
@@ -9,9 +10,9 @@ from django.views.generic import (
     CreateView
 )
 from articles.models import (
-    Categories,
-    Articles
+    Categories
 )
+from pure_pagination.mixins import PaginationMixin
 from .forms import ArticlesCreateForm
 from .utils import *
 
@@ -21,6 +22,7 @@ def zip_list(lst, sz):
 
 
 class CategoriesIndex(DataMixin, ListView):
+    paginate_by = 4
     model = Categories
     template_name = 'categories/index.html'
     context_object_name = 'categories'
@@ -53,8 +55,15 @@ class CategoriesView(DataMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+
+        articles = self.get_object().articles_set.filter(is_published=True).order_by('time_create')
+        paginator = Paginator(articles, 4)
+        page_number = self.request.GET.get('page')
+        page_object = paginator.get_page(page_number)
+
+        context['page_obj'] = page_object
         context['articles'] = zip_list(
-            self.get_object().articles_set.filter(is_published=True).order_by('time_create'),
+            page_object,
             2
         )
         default_context = self.get_user_context(

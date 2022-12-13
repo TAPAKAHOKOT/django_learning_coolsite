@@ -59,9 +59,9 @@ jobs:
         port: 22
         script: |
           git -C "/home/bbam_ru/django_learning_coolsite" pull
-          venv/bin/python -m pip install --upgrade pip
-          venv/bin/python -m pip install -r django_learning_coolsite/requirements.txt
-          venv/bin/python "/home/bbam_ru/django_learning_coolsite/manage.py" migrate
+          venv/bin/python3.10 -m pip install --upgrade pip
+          venv/bin/python3.10 -m pip install -r django_learning_coolsite/requirements.txt
+          venv/bin/python3.10 "/home/bbam_ru/django_learning_coolsite/manage.py" migrate
           pm2 delete bbam_ru
           pm2 start bbam.json
           pm2 save --force

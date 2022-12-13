@@ -15,11 +15,22 @@ class IndexView(DataMixin, TemplateView):
         return dict(list(context.items()) + list(default_context.items()))
 
 
-def test(request):
-    args = {
-        'active_menu': 'test',
-        'menu': menu,
-        'submenu': submenu,
-    }
-    return render(request, 'test.html', args)
+class TestView(DataMixin, TemplateView):
+    template_name = "test.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        default_context = self.get_user_context(
+            active_menu='test',
+            title='Test'
+        )
+        return dict(list(context.items()) + list(default_context.items()))
+
+# def test(request):
+#     args = {
+#         'active_menu': 'test',
+#         'menu': menu,
+#         'submenu': submenu,
+#     }
+#     return render(request, 'test.html', args)
 
