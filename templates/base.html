@@ -40,11 +40,7 @@
                                 <div class="link">...</div>
                             {% endif %}
                             {% for page in page_obj.paginator.page_range %}
-                                {% if page_obj.number == page %}
-                                    <a class="link selected" href="?page={{ page }}">{{ page }}</a>
-                                {% elif page >= page_obj.number|add:-2 and page <= page_obj.number|add:2 %}
-                                    <a class="link" href="?page={{ page }}">{{ page }}</a>
-                                {% endif %}
+                                <a class="link {% if page_obj.number == page%}selected{% endif %}" href="?page={{ page }}">{{ page }}</a>
                             {% endfor %}
                             {% if page_obj.number < page_obj.paginator.num_pages|add:-2 %}
                                 <div class="link">...</div>
