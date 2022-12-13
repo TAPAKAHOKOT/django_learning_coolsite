@@ -4,6 +4,7 @@
         {% block extrastyle %}
             <link href="{% sass_src 'default/null.scss' %}" rel="stylesheet" />
             <link href="{% sass_src 'base/sass/base.scss' %}" rel="stylesheet" />
+            <link href="{% sass_src 'base/sass/form.scss' %}" rel="stylesheet" />
         {% endblock %}
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {% block title %}
@@ -25,6 +26,7 @@
                         {% for submenu_item in submenu %}
                             <a href="{% url submenu_item.url_name %}" class="{% if active_menu == submenu_item.index %}active{% endif %}">{{ submenu_item.title }}</a>
                         {% endfor %}
+                        <a href="{% url 'register' %}" class="{% if active_menu == 'register' %}active{% endif %}">Регистрация</a>
                     </div>
                 </div>
             </div>

@@ -23,6 +23,8 @@ from coolsite.views import *
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
     path('test/', TestView.as_view(), name='test'),
+    path('login/', TestView.as_view(), name='login'),
+    path('register/', RegisterView.as_view(), name='register'),
     path('', include('articles.urls')),
     path('admin/', admin.site.urls, name='admin'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
