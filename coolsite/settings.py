@@ -129,6 +129,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+SASS_PROCESSOR_ROOT = BASE_DIR / 'static'
 STATIC_ROOT = BASE_DIR / 'static'
 SASS_PROCESSOR_INCLUDE_DIRS = [
     BASE_DIR / 'articles/static'

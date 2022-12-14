@@ -1,8 +1,1 @@
-.content {
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-  .content h1 {
-    color: green; }
-
-/*# sourceMappingURL=test.css.map */
+.content{display:flex;justify-content:center;align-items:center}.content h1{color:green}
