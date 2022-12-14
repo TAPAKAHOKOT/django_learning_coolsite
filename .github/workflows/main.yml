@@ -62,8 +62,8 @@ jobs:
           venv/bin/python3.10 -m pip install --upgrade pip
           venv/bin/python3.10 -m pip install -r django_learning_coolsite/requirements.txt
           venv/bin/python3.10 "/home/bbam_ru/django_learning_coolsite/manage.py" migrate
-          venv/bin/python3.10 manage.py compilescss
-          venv/bin/python3.10 manage.py collectstatic --noinput
+          venv/bin/python3.10 django_learning_coolsite/manage.py compilescss
+          venv/bin/python3.10 django_learning_coolsite/manage.py collectstatic --noinput
           pm2 delete bbam_ru
           pm2 start bbam.json
           pm2 save --force
