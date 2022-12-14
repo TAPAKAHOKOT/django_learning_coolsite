@@ -56,3 +56,5 @@ media
 
 cache
 static
+
+**/sass/*.css
