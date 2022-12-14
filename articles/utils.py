@@ -5,19 +5,19 @@ menu = [
         'url_name': 'index'
     },
     {
-        'title': 'Create article',
-        'index': 'articles_create',
-        'url_name': 'articles_create',
-        'needs_auth': True
-    }
-]
-
-submenu = [
-    {
         'title': 'Categories',
         'index': 'categories_index',
         'url_name': 'categories_index'
     },
+    {
+        'title': 'Create article',
+        'index': 'articles_create',
+        'url_name': 'articles_create',
+        'needs_auth': True
+    },
+]
+
+submenu = [
     {
         'title': 'Test',
         'index': 'test',

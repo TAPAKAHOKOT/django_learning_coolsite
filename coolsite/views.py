@@ -1,6 +1,6 @@
-from django.contrib.auth import logout
+from django.contrib.auth import logout, login
 from django.contrib.auth.views import LoginView
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView
 
@@ -44,6 +44,11 @@ class RegisterUser(DataMixin, CreateView):
             title='register'
         )
         return dict(list(context.items()) + list(default_context.items()))
+
+    def form_valid(self, form):
+        user = form.save()
+        login(self.request, user)
+        return redirect('index')
 
 
 class LoginUser(DataMixin, LoginView):

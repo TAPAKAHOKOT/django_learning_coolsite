@@ -8,7 +8,7 @@ class RegisterUserForm(UserCreationForm):
         widget=forms.TextInput(
             attrs={
                 'class': 'input__item form__input',
-                'placeholder': 'Логин'
+                'placeholder': 'Login'
             }
         )
     )
@@ -16,7 +16,7 @@ class RegisterUserForm(UserCreationForm):
         widget=forms.EmailInput(
             attrs={
                 'class': 'input__item form__input',
-                'placeholder': 'Почта'
+                'placeholder': 'Email'
             }
         )
     )
@@ -24,7 +24,7 @@ class RegisterUserForm(UserCreationForm):
         widget=forms.PasswordInput(
             attrs={
                 'class': 'input__item form__input',
-                'placeholder': 'Пароль'
+                'placeholder': 'Password'
             }
         )
     )
@@ -32,7 +32,7 @@ class RegisterUserForm(UserCreationForm):
         widget=forms.PasswordInput(
             attrs={
                 'class': 'input__item form__input',
-                'placeholder': 'Пароль еще раз'
+                'placeholder': 'Password again'
             }
         )
     )
@@ -47,7 +47,7 @@ class LoginUserForm(AuthenticationForm):
         widget=forms.TextInput(
             attrs={
                 'class': 'input__item form__input',
-                'placeholder': 'Логин'
+                'placeholder': 'Login'
             }
         )
     )
@@ -55,7 +55,7 @@ class LoginUserForm(AuthenticationForm):
         widget=forms.PasswordInput(
             attrs={
                 'class': 'input__item form__input',
-                'placeholder': 'Пароль'
+                'placeholder': 'Password'
             }
         )
     )
