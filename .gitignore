@@ -55,6 +55,6 @@ docs/_build/
 media
 
 cache
-static
 
 **/sass/*.css
+**/sass/*.css.map

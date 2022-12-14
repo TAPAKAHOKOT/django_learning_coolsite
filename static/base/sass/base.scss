@@ -1,0 +1,235 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 30px;
+
+  @media screen and (max-width: 800px) {
+    margin: 0px 0px;
+  }
+
+  .header__part {
+    width: 40%;
+    height: 50px;
+    //position: relative;
+    //top: 0;
+    //
+    //-webkit-animation: autoHide 1.0s forwards;
+    //animation: autoHide 0.5s forwards;
+    //
+    //@for $i from 1 through 10 {
+    //  &:nth-child(#{$i}n) {
+    //      -webkit-animation-delay: #{60 + random(5)/10}s;
+    //      animation-delay: #{60 + random(5)/10}s;
+    //  }
+    //}
+    //
+    //&:hover {
+    //  -webkit-animation: showOnHover 0.5s forwards;
+    //  animation: showOnHover 0.5s forwards;
+    //}
+    //
+    //@-webkit-keyframes autoHide {
+    //  to {
+    //    top: -45px;
+    //  }
+    //}
+    //@keyframes autoHide {
+    //  to {
+    //    top: -45px;
+    //  }
+    //}
+    //
+    //@-webkit-keyframes showOnHover {
+    //  to {
+    //    top: 0;
+    //  }
+    //}
+    //
+    //@keyframes showOnHover {
+    //  to {
+    //    top: 0;
+    //  }
+    //}
+
+    @media screen and (max-width: 800px) {
+      width: auto;
+      height: auto;
+    }
+
+    .header__container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      background-color: orange;
+      box-shadow: 5px 5px 0px black;
+      opacity: 0.9;
+
+      @media screen and (max-width: 800px) {
+        flex-direction: column;
+        padding: 10px 7px;
+      }
+
+
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 2px 2px 0px black;
+        background-color: yellow;
+        padding: 3px 10px;
+        border-radius: 5px;
+        transition: 0.5s;
+        flex-grow: 1;
+        margin: 0px 5px;
+        text-decoration: none;
+        color: black;
+
+        @media screen and (max-width: 800px) {
+          width: 100%;
+          margin: 5px 15px;
+          font-size: 20px;
+        }
+      }
+
+      a:hover {
+        flex-grow: 5;
+        background-color: #000;
+        box-shadow: 0px 0px 0px black;
+        color: #fff;
+      }
+
+      a.active {
+        background-color: #000;
+        color: #fff;
+        box-shadow: 0px 0px 0px black;
+        flex-grow: 5;
+      }
+
+      a.active:hover {
+        background-color: yellow;
+        box-shadow: 2px 2px 0px black;
+        color: #000;
+      }
+
+
+    }
+  }
+}
+
+.content {
+  flex-grow: 1;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: orange;
+  box-shadow: 0px -5px 0px black;
+  width: 100%;
+  height: 40px;
+  transition: 0.5s;
+
+  .footer__container {
+    display: flex;
+
+    .footer__text {
+      color: #000;
+      margin: 0px 10px;
+    }
+  }
+
+  &:hover {
+    box-shadow: 0px 0px 0px black;
+  }
+}
+
+.list {
+  .list__item {
+    list-style-type: none;
+    padding: 20px;
+    display: inline;
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 2px 2px 0px black;
+      background-color: yellow;
+      padding: 3px 10px;
+      border-radius: 5px;
+      transition: 0.5s;
+      flex-grow: 1;
+      margin: 0px 5px;
+      text-decoration: none;
+      color: black;
+    }
+
+    a:hover {
+      flex-grow: 5;
+      background-color: #000;
+      box-shadow: 0px 0px 0px black;
+      color: #fff;
+    }
+  }
+}
+
+.pagination__container {
+  margin-top: 30px;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 0px black;
+  background-color: orange;
+  padding: 3px 10px;
+  border-radius: 5px;
+  transition: 0.5s;
+  flex-grow: 1;
+  margin: 0px 5px;
+  text-decoration: none;
+  color: black;
+}
+
+.link:hover {
+  flex-grow: 5;
+  background-color: #000;
+  box-shadow: 0px 0px 0px black;
+  color: #fff;
+}
+
+.selected {
+  flex-grow: 5;
+  background-color: #000;
+  box-shadow: 0px 0px 0px black;
+  color: #fff;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex_space_between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
