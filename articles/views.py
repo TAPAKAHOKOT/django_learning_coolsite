@@ -92,3 +92,8 @@ class ArticlesCreate(LoginRequiredMixin, DataMixin, CreateView):
             title='Categories'
         )
         return dict(list(context.items()) + list(default_context.items()))
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        form.instance.is_published = True
+        return super(ArticlesCreate, self).form_valid(form)

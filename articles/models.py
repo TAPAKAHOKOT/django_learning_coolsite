@@ -1,6 +1,8 @@
+from django.contrib.auth.models import User
 from django.db import models
-from django.template.defaultfilters import slugify
 from django.urls import reverse
+from django.utils.text import slugify
+from pytils.translit import translify
 
 
 class Categories(models.Model):
@@ -26,6 +28,7 @@ class Categories(models.Model):
 
 class Articles(models.Model):
     category = models.ForeignKey(Categories, on_delete=models.PROTECT)
+    author = models.ForeignKey(User, on_delete=models.PROTECT)
 
     slug = models.SlugField(unique=True)
     title = models.CharField(max_length=255, db_index=True)
@@ -41,7 +44,7 @@ class Articles(models.Model):
         return reverse('categories_view', kwargs={'category_slug': self.slug})
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
+        self.slug = translify(slugify(self.title, allow_unicode=True))
         super().save(*args, **kwargs)
 
     def __str__(self):
