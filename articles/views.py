@@ -25,7 +25,7 @@ class CategoriesIndex(DataMixin, ListView):
     model = Categories
     template_name = 'categories/index.html'
     context_object_name = 'categories'
-    allow_empty = False
+    # allow_empty = False
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -55,7 +55,7 @@ class CategoriesView(DataMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        articles = self.get_object().articles_set.filter(is_published=True).order_by('time_create')
+        articles = context['object'].articles_set.filter(is_published=True).order_by('time_create')
         paginator = Paginator(articles, 4)
         page_number = self.request.GET.get('page')
         page_object = paginator.get_page(page_number)
